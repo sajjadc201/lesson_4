@@ -30,8 +30,11 @@ jobs:
       with:
       # Npm Command
        cmd: install
-    
+      
+    - name: creating build
+      run: npm build
+
     - name: Installing surge
       run: npm install --global surge
     - name: deploing using surge
-      run: surge ./ lesson_4.surge.sh --token ${{secrets.SURGE_Token }}
+      run: surge ./ build https://pleaseacceptit.surge.sh --token ${{secrets.SURGE_Token }}
